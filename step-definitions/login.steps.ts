@@ -1,6 +1,7 @@
 import { Given, When, Then } from '@wdio/cucumber-framework'
 import LoginPage from '../pageobjects/login.page'
 import { expect } from '@wdio/globals'
+import BasePage from "../pageobjects/base.page'
 
 Given('I open Amazon website', async () => {
   await LoginPage.openAmazon()
@@ -18,6 +19,7 @@ When('I continue login', async () => {
   await LoginPage.clickContinue()
 })
 
+//Login error message:
 Then('I should see login error message', async () => {
   const error = await LoginPage.getErrorText()
   await expect(error).toContain('problem')
